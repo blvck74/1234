@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="WpfLb1.WorksTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Добавить работы" 
+                  Click="OnAddWork_Click"
+                  Style="{StaticResource MaterialDesignRaisedButton}"
+                  Margin="0,0,10,0"/>
+            <Button Content="Удалить работы" 
+                  Click="OnDeleteWork_Click"
+                  Style="{StaticResource MaterialDesignRaisedButton}"
+                  Margin="0,0,10,0"/>
+            <Button Content="Архив работ" 
+                  Click="ShowArchive_Click"
+                  Style="{StaticResource MaterialDesignRaisedButton}"
+                  Margin="0,0,10,0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="ServicesList" 
+                   SelectionChanged="ServicesList_SelectionChanged"
+                   Margin="0,0,10,0"/>
+
+            <ScrollViewer Grid.Column="1">
+                <StackPanel x:Name="WorksList"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="WpfLb1.ShiftTransferTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="Загрузить файл" Click="UploadFile_Click" Margin="0,10,10,0"/>
+            <Button Content="Экспорт в Excel" Click="ExportToExcel_Click" Margin="0,10,10,0"/>
+            <Button Content="Скопировать 1 столбец" Click="CopyColumn1_Click" Margin="0,10,10,0"/>
+            <Button Content="Скопировать 2 столбец" Click="CopyColumn2_Click" Margin="0,10,10,0"/>
+            <Button Content="Скопировать 3 столбец" Click="CopyColumn3_Click" Margin="0,10,10,0"/>
+            <Button Content="Скопировать 4 столбец" Click="CopyColumn4_Click" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Style="{StaticResource MaterialDesignScrollViewer}">
+            <DataGrid x:Name="ShiftTransferDataGrid" AutoGenerateColumns="True" Margin="0,10,0,0" IsReadOnly="True"/>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>

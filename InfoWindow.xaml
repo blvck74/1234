@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfLb1.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Информация"
+        Height="600" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}">
+
+    <materialDesign:Card Margin="16" 
+                        Padding="16"
+                        materialDesign:ElevationAssist.Elevation="Dp2">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                     HorizontalScrollBarVisibility="Auto">
+            <materialDesign:Card Padding="16" 
+                               materialDesign:ElevationAssist.Elevation="Dp0"
+                               Background="{DynamicResource MaterialDesignBackground}">
+                <FlowDocumentReader ViewingMode="Page" 
+                                  IsFindEnabled="True" 
+                                  IsPageViewEnabled="True"
+                                  IsPrintEnabled="True"
+                                  x:Name="DocumentReader">
+                    <FlowDocument x:Name="ContentDocument"
+                                TextAlignment="Left"
+                                PagePadding="20">
+                        <Paragraph>
+                            <Run x:Name="ContentRun" />
+                        </Paragraph>
+                    </FlowDocument>
+                </FlowDocumentReader>
+            </materialDesign:Card>
+        </ScrollViewer>
+    </materialDesign:Card>
+</Window>

@@ -1,0 +1,5 @@
+﻿<UserControl x:Class="WpfLb1.AdminTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Button Content="Открыть админку" Click="OnOpenAdminClick" Margin="10"/>
+</UserControl>

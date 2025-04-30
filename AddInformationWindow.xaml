@@ -1,0 +1,78 @@
+﻿<Window x:Class="WpfLb1.AddInformationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Добавить информацию" 
+        Height="600" 
+        Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Название темы -->
+        <TextBox x:Name="TopicNameTextBox"
+                 Grid.Row="0"
+                 Margin="0,0,0,16"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 materialDesign:HintAssist.Hint="Название темы"/>
+
+        <!-- Панель инструментов Markdown -->
+        <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal" 
+                    Margin="0,0,0,8">
+            <Button Style="{StaticResource MaterialDesignToolButton}"
+                    ToolTip="Жирный текст"
+                    Click="OnBoldClick"
+                    Margin="0,0,8,0">
+                <materialDesign:PackIcon Kind="FormatBold"/>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignToolButton}"
+                    ToolTip="Курсив"
+                    Click="OnItalicClick"
+                    Margin="0,0,8,0">
+                <materialDesign:PackIcon Kind="FormatItalic"/>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignToolButton}"
+                    ToolTip="Код"
+                    Click="OnCodeClick"
+                    Margin="0,0,8,0">
+                <materialDesign:PackIcon Kind="CodeTags"/>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignToolButton}"
+                    ToolTip="Ссылка"
+                    Click="OnLinkClick"
+                    Margin="0,0,8,0">
+                <materialDesign:PackIcon Kind="Link"/>
+            </Button>
+        </StackPanel>
+
+        <!-- Текстовое поле для контента -->
+        <TextBox x:Name="ContentTextBox"
+                 Grid.Row="2"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 materialDesign:HintAssist.Hint="Используйте Markdown для форматирования текста"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 FontFamily="Consolas"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="3" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,16,0,0">
+            <Button Content="Отмена" 
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Click="OnCancelClick" 
+                    Margin="0,0,8,0"/>
+            <Button Content="Сохранить"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Click="OnSaveClick"/>
+        </StackPanel>
+    </Grid>
+</Window>

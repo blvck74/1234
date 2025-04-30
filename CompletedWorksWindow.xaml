@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfLb1.CompletedWorksWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Архив работ" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="SearchBox"
+                 materialDesign:HintAssist.Hint="Поиск работ..."
+                 TextChanged="SearchBox_TextChanged"
+                 Margin="0,0,0,10"/>
+
+        <ListView x:Name="WorksList" Grid.Row="1" SelectionChanged="WorksList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding WorkName}" Width="200"/>
+                    <GridViewColumn Header="Сервис" DisplayMemberBinding="{Binding ServiceName}" Width="150"/>
+                    <GridViewColumn Header="Номер инцидента" DisplayMemberBinding="{Binding IncidentNumber}" Width="150"/>
+                    <GridViewColumn Header="Дата начала" DisplayMemberBinding="{Binding StartDate, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Width="150"/>
+                    <GridViewColumn Header="Дата окончания" DisplayMemberBinding="{Binding EndDate, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

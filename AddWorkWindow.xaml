@@ -1,0 +1,64 @@
+﻿<Window x:Class="WpfLb1.AddWorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Добавление работы" Height="450" Width="400"
+        WindowStartupLocation="CenterOwner">
+    <StackPanel Margin="20">
+        <ComboBox x:Name="ServiceComboBox"
+                  materialDesign:HintAssist.Hint="Выберите сервис"
+                  Margin="0,10"/>
+
+        <TextBox x:Name="IncidentTextBox"
+                 materialDesign:HintAssist.Hint="Номер инцидента"
+                 Margin="0,10"/>
+
+        <TextBox x:Name="WorkNameTextBox"
+                 materialDesign:HintAssist.Hint="Название работы"
+                 Margin="0,10"/>
+
+        <!-- Дата и время начала -->
+        <Grid Margin="0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker x:Name="StartDatePicker"
+                       materialDesign:HintAssist.Hint="Дата начала"
+                       Margin="0,0,5,0"/>
+            <TextBox x:Name="StartTimePicker"
+                    Grid.Column="1"
+                    materialDesign:HintAssist.Hint="ЧЧ:ММ"
+                    Margin="5,0,0,0"/>
+        </Grid>
+
+        <!-- Дата и время окончания -->
+        <Grid Margin="0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker x:Name="EndDatePicker"
+                       materialDesign:HintAssist.Hint="Дата окончания"
+                       Margin="0,0,5,0"/>
+            <TextBox x:Name="EndTimePicker"
+                    Grid.Column="1"
+                    materialDesign:HintAssist.Hint="ЧЧ:ММ"
+                    Margin="5,0,0,0"/>
+        </Grid>
+
+        <TextBox x:Name="WorkLinkTextBox"
+                 materialDesign:HintAssist.Hint="Ссылка на работу (необязательно)"
+                 materialDesign:HintAssist.HelperText="Оставьте пустым, если ссылка отсутствует"
+                 Margin="0,10"/>
+        <!-- После поля WorkLink -->
+        <CheckBox x:Name="HasDowntimeCheckBox"
+                  Content="Имеется даунтайм"
+                  Margin="0,10"
+                  materialDesign:HintAssist.Hint="Указать наличие даунтайма"/>
+        <Button Content="Сохранить"
+                Click="OnSave_Click"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                Margin="0,20,0,0"/>
+    </StackPanel>
+</Window>
